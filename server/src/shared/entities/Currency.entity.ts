@@ -15,15 +15,27 @@ export class Currency extends BaseEntity {
 
   @Column({ type: 'varchar' })
   @ApiProperty({ type: String })
-  name: string;
+  symbol: string;
 
   @Column({ type: 'varchar' })
   @ApiProperty({ type: String })
-  currency: string;
+  name: string;
 
-  @Column({ type: 'numeric' })
+  @Column('decimal', { precision: 30, scale: 8 })
   @ApiProperty({ type: Number })
   price: number;
+
+  @Column('decimal', { precision: 39, scale: 8 })
+  @ApiProperty({ type: Number })
+  marketCap: number;
+
+  @Column('decimal', { precision: 30, scale: 8 })
+  @ApiProperty({ type: Number })
+  volume24h: number;
+
+  @Column('decimal', { precision: 30, scale: 8 })
+  @ApiProperty({ type: Number })
+  percentChange24h: number;
 
   @UpdateDateColumn({ type: 'timestamptz' })
   @ApiProperty({ type: Date })

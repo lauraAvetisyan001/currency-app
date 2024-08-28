@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
+import { Currency } from 'src/shared/entities/Currency.entity';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { join } from 'path';
         };
       },
     }),
+    TypeOrmModule.forFeature([Currency]),
   ],
 
   exports: [TypeOrmModule],
