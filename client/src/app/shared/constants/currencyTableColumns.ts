@@ -1,0 +1,1 @@
+export const CURRENCY_COLUMNS: string[] = ['position', 'name', 'price', 'symbol'];

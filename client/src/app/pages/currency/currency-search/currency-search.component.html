@@ -1,0 +1,9 @@
+<mat-form-field class="search" appearance="outline" mat-direction>
+  <mat-label>Search by name</mat-label>
+  <input
+    matInput
+    placeholder="Name"
+    [(ngModel)]="search_text"
+    (ngModelChange)="onSearchChange()"
+  />
+</mat-form-field>

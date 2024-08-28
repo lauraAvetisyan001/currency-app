@@ -13,7 +13,7 @@ export class Currency extends BaseEntity {
   @ApiProperty({ type: Number })
   id: number;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', unique: true })
   @ApiProperty({ type: String })
   symbol: string;
 

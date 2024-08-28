@@ -1,0 +1,10 @@
+<app-currency-search></app-currency-search>
+
+<div
+  infinite-scroll
+  [infiniteScrollDistance]="1"
+  [infiniteScrollThrottle]="1000"
+  (scrolled)="loadMoreCurrencies()"
+>
+  <app-currency-table [currencies]="currencies"></app-currency-table>
+</div>

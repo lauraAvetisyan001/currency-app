@@ -17,13 +17,11 @@ export class CurrencyService {
   ): Promise<[Currency[], number]> {
     const query: SelectQueryBuilder<Currency> =
       this.currencyRepository.createQueryBuilder('currency');
-
     if (search_text) {
-      query.andWhere('(currency.name LIKE :search_text)', {
-        search_text: `%${search_text}%`,
+      query.where('LOWER(currency.name) ILIKE :search_text', {
+        search_text: `%${search_text.toLowerCase()}%`,
       });
     }
-
     query.take(pagination.limit).skip((pagination.page - 1) * pagination.limit);
 
     return await query.getManyAndCount();
